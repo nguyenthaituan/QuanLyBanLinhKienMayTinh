@@ -1,0 +1,89 @@
+﻿@model IEnumerable<QuanLyBanLinhKienMayTinh.Models.SANPHAM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "MaSP", rowsPerPage: 5);
+}
+
+
+<h2>Danh sách linh kiện</h2>
+
+<p>
+    @Html.ActionLink("Thêm linh kiện", "Create")
+</p>
+
+<html>
+<head>
+    <style type="text/css">
+        .grid-footer {
+            color: #000;
+            font: 17px Calibri;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            .grid-footer a {
+                background-color: #ffffff;
+                color: blue;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                padding: 1px 10px 2px 10px;
+            }
+
+                .grid-footer a:active, a:hover {
+                    background-color: #ffffff;
+                    color: #FFAD33;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                }
+
+        .alternatingRowStyle {
+            background-color: aliceblue;
+        }
+
+        table .table1 {
+            text-align: left;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 800px;
+        }
+
+        .tr, .td {
+            text-align: left;
+        }
+
+        img{
+            width:100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gridContent">
+        @ViewBag.TB
+        @grid.GetHtml(
+            tableStyle: "table table-bordered table-hover",
+            footerStyle: "grid-footer",
+            fillEmptyRows: true,
+            mode: WebGridPagerModes.Numeric,
+            alternatingRowStyle: "alternatingRowStyle",
+              columns: new[]  // colums in grid
+             {
+        grid.Column("STT",format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
+        grid.Column("TenSP","Tên linh kiện"),
+        grid.Column("DonGia","Đơn Giá"  ),
+        grid.Column("NgayCapNhat","Ngày cập nhật",format:@<text> @item.NgayCapNhat.ToString("dd/MM/yyyy")</text>),
+grid.Column("CauHinh","Cấu hình", format: p=> Html.Raw(p.CauHinh)),
+grid.Column("HinhAnh","Hình Ảnh", format: p=> @Html.Raw("<img src=\"../Content/HinhAnhSP/"+p.HinhAnh +"\">")),
+grid.Column("SoLuongTon","Số lượng tồn"),
+grid.Column("NHASANXUAT.TenNSX","Nhà Sản Xuất"),
+grid.Column("NHACUNGCAP.TenNCC","Nhà Cung Cấp"),
+grid.Column(format: (item) => Html.ActionLink("Cập nhật", "Edit", "QuanLySanPham",new { id = item.MaSP },"QuanLySanPhamController")),
+grid.Column(format: (item) => Html.ActionLink("Xem chi tiết", "Details","QuanLySanPham",new { id = item.MaSP },"QuanLySanPhamController")),
+grid.Column(format: (item) => Html.ActionLink("Xóa", "Delete","QuanLySanPham",new { id = item.MaSP },"QuanLySanPhamController"))
+
+}
+)
+    </div>
+</body>
+
+</html>

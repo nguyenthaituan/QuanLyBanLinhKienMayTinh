@@ -1,0 +1,43 @@
+﻿@model QuanLyBanLinhKienMayTinh.Models.NHASANXUAT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<h2>Thông tin chi tiết nhà sản xuất</h2>
+
+<div>
+   
+    <dl class="dl-horizontal">
+        <dt>
+            Tên NSX
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNSX)
+        </dd>
+
+        <dt>
+            Thông tin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThongTin)
+        </dd>
+
+        <dt>
+            Logo
+        </dt>
+
+        <dd>
+            <img src="~/Content/HinhAnhSP/@Html.DisplayFor(model => model.Logo)" width="100" height="100" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa thông tin", "Edit", new { id = Model.MaNSX }) |
+
+    @Html.ActionLink("Trở về", "Index")
+</p>

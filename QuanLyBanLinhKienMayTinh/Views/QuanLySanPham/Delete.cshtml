@@ -1,0 +1,95 @@
+﻿@model QuanLyBanLinhKienMayTinh.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<h2>Xóa linh kiện</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Tên linh kiện: 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            Đơn giá:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            Ngày cập nhật:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayCapNhat)
+        </dd>
+
+        <dt>
+            Cấu hình:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CauHinh)
+        </dd>
+
+        <dt>
+            Hình ảnh:
+        </dt>
+
+        <dd>
+            <td rowspan="8"><img src="~/Content/HinhAnhSP/@Html.DisplayFor(model => model.HinhAnh)" width="100" height="100" /></td>
+        </dd>
+
+        <dt>
+            Số lượng tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            Tên loại linh kiện:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAISANPHAM.TenLoai)
+        </dd>
+
+        <dt>
+            Tên nhà cung cấp:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHACUNGCAP.TenNCC)
+        </dd>
+
+        <dt>
+            Tên nhà sản xuất:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHASANXUAT.TenNSX)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <span>Bạn có chắc chắn muốn xóa?</span>
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

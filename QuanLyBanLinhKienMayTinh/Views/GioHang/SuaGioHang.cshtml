@@ -1,0 +1,73 @@
+﻿@using QuanLyBanLinhKienMayTinh.Models
+@model ItemGioHang
+@{
+    ViewBag.Title = "SuaGioHang";
+    Layout = "~/Views/Layout/_ProductLayout.cshtml";
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 855px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+}
+
+@{
+    List<ItemGioHang> lstgiohang = ViewBag.GioHang as List<ItemGioHang>;
+}
+
+<table>
+    <tr>
+        <th>Mã SP</th>
+        <th>Tên SP</th>
+        <th>Hình ảnh</th>
+        <th>Đơn giá</th>
+        <th>Số lượng</th>
+        <th>Thành tiền</th>
+    </tr>
+    @foreach (var item in lstgiohang)
+    {
+        //Sản phẩm có mã được chỉnh sửa
+        if (Model.MaSP == item.MaSP)
+        {
+            using (Html.BeginForm("CapNhatGioHang", "GioHang"))
+            {
+                <tr>
+                    <td>@item.MaSP @Html.Hidden("MaSP",item.MaSP)</td>
+                    <td>@item.TenSP</td>
+                    <td><img src="@Url.Content("~/Content/HinhAnhSP/" + item.HinhAnh)" style="width: 50px; height: 50px;" /></td>
+                    <td>@item.DonGia.ToString("#,##") đồng</td>
+                    <td>@Html.TextBox("SoLuong", @item.SoLuong)</td>
+                    <td>@item.ThanhTien.ToString("#,##") đồng</td>
+                    <td><input type="submit" value="Cập Nhật"></td>
+                </tr>
+            }
+        }
+
+        else
+        {
+            <tr>
+                <td>@item.MaSP</td>
+                <td>@item.TenSP</td>
+                <td><img src="@Url.Content("~/Content/HinhAnhSP/" + item.HinhAnh)" style="width: 50px; height: 50px;" /></td>
+                <td>@item.DonGia.ToString("#,##") đồng</td>
+                <td>@item.SoLuong</td>
+                <td>@item.ThanhTien.ToString("#,##") đồng</td>
+                <td>@Html.ActionLink("Sửa", "SuaGioHang", new { @MaSP = item.MaSP })</td>
+            </tr>
+        }
+    }
+</table>
+
+
+
+

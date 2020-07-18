@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d193be870b8940928baf6fe7fbb825bf" Name="Diagram1">
+        <EntityTypeShape EntityType="QLBH_SQLModel.CHITIETDONDATHANG" Width="1.5" PointX="8.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.CHITIETPHIEUNHAP" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.CHUCVU" Width="1.5" PointX="1.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.DONDATHANG" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.HoiDap" Width="1.5" PointX="8.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.LOAISANPHAM" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.LOAITHANHVIEN" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.NHASANXUAT" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.PHIEUNHAP" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.QuangCao" Width="1.5" PointX="10.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.SANPHAM" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.sysdiagram" Width="1.5" PointX="10.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.THANHVIEN" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_SQLModel.TinTuc" Width="1.5" PointX="10.75" PointY="8.5" IsExpanded="true" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__CHITIETDO__MaDDH__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__CHITIETDON__MaSP__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__CHITIETPHI__MaPN__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__CHITIETPHI__MaSP__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__NHANVIEN__MaCV__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__DONDATHAN__TaiKh__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__SANPHAM__MaLoai__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__THANHVIEN__MaLoa__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__PHIEUNHAP__MaNCC__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__SANPHAM__MaNCC__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__PHIEUNHAP__TaiKh__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBH_SQLModel.FK__SANPHAM__MaNSX__1BFD2C07" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,35 @@
+﻿@using QuanLyBanLinhKienMayTinh.Models
+@model IEnumerable<SANPHAM>
+@{
+    var cauHinh = "";
+}
+
+@foreach (var item in Model.Take(4))
+{
+    <div class="col-md-3 grid-top">
+        <a href="@Url.Action("XemChiTiet","SanPham", new {id = item.MaSP })" class="b-link-stripe b-animate-go  thickbox">
+            <img class="img-responsive" src="@Url.Content("~/Content/HinhAnhSP/" + item.HinhAnh)" alt="">
+            <div class="b-wrapper">
+                <h3 class="b-animate b-from-left    b-delay03 " style="text-align: left; font-size: 15pt;">
+                    <span style="text-align: left; position: absolute; top:1%;left: 1%; font-size: 15pt;">
+                        @{
+                            string a = item.CauHinh;
+                            cauHinh += "-";
+                            for (int i = 1; i < a.Length; i++)
+                            {
+                                if (a[i] == '-')
+                                {
+                                    cauHinh += "</br>";
+
+                                }
+                                cauHinh += a[i];
+                            }
+                        }
+                        @Html.Raw(cauHinh)
+                    </span>
+                </h3>
+            </div>
+        </a>
+        <p><a href="@Url.Action("XemChiTiet","SanPham", new {id = item.MaSP })">@item.TenSP</a></p>
+    </div>
+}

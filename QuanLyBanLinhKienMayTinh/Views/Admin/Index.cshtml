@@ -1,0 +1,12 @@
+﻿@using QuanLyBanLinhKienMayTinh.Models
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+@if (Session["TaiKhoan"] != null && Session["TaiKhoan"] != "")
+{
+    NHANVIEN tv = (NHANVIEN)Session["TaiKhoan"];
+    <h4 style="font-size: 13pt; font-weight: 700; margin-right: 15px;">Chào Admin @tv.HoTen</h4>
+}

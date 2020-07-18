@@ -1,0 +1,56 @@
+﻿
+@using QuanLyBanLinhKienMayTinh.Models
+@model IEnumerable<SANPHAM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/_HomeLayout.cshtml";
+}
+
+@{ 
+
+    IEnumerable<SANPHAM> lstSSD = (IEnumerable<SANPHAM>)ViewBag.lstSSD;
+    IEnumerable<SANPHAM> lstCPU = (IEnumerable<SANPHAM>)ViewBag.lstCPU;
+    IEnumerable<SANPHAM> lstHDD = (IEnumerable<SANPHAM>)ViewBag.lstHDD;
+    IEnumerable<SANPHAM> lstRAM = (IEnumerable<SANPHAM>)ViewBag.lstRAM;
+    IEnumerable<SANPHAM> lstBANPHIM = (IEnumerable<SANPHAM>)ViewBag.lstBANPHIM;
+
+}
+ 
+    <div class="container">
+        <div class="content-top">
+            <h1>SSD mới nhất</h1>
+            <div class="grid-in">
+                @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstSSD)
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
+        <div class="content-top-bottom">
+            <h2>CPU mới nhất</h2>
+            @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", lstCPU)
+        </div>
+
+        <div class="content-top">
+            <h1>HDD mới nhất</h1>
+            <div class="grid-in">
+                @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstHDD)
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
+        <div class="content-top-bottom">
+            <h2>RAM mới nhất</h2>
+            @Html.Partial("~/Views/SanPham/SanPhamStyle2Partial.cshtml", lstRAM)
+        </div>
+
+        <div class="content-top">
+            <h1>Bàn phím mới nhất</h1>
+            <div class="grid-in">
+                @Html.Partial("~/Views/SanPham/SanPhamStyle1Partial.cshtml", lstBANPHIM)
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+
+    </div>
+

@@ -1,0 +1,39 @@
+﻿@using QuanLyBanLinhKienMayTinh.Models
+@model IEnumerable<SANPHAM>
+
+<div class=" h_menu4">
+    <ul class="memenu skyblue">
+        <li class="active grid" style="display: inline;"><a class="color8" href="@Url.Action("Index","Home")">TRANG CHỦ</a></li>
+
+        @foreach (var groupItem in Model.GroupBy(n => n.LOAISANPHAM))
+        {
+            if (groupItem != null)
+            {
+                <li style="display: inline;">
+                    <a class="color1" href="@Url.Action("SanPhamALL","SanPham",new {@MaLoaiSP = groupItem.Key.MaLoai})">@groupItem.Key.TenLoai</a>
+                    <div class="mepanel">
+                        <div class="row">
+                            <div class="col1">
+                                <div class="h_nav">
+                                    <ul>
+                                        @foreach (var item in groupItem.GroupBy(n => n.NHASANXUAT))
+                                        {
+                                            if (item.Key != null)
+                                            {
+                                                <li><a href="@Url.Action("SanPham","SanPham",new {@MaLoaiSP = groupItem.Key.MaLoai, @MaNSX = item.Key.MaNSX })">@item.Key.TenNSX</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        }
+
+
+        <li style="display: inline;"><a class="color4" href="blog.html">GIỚI THIỆU</a></li>
+        <li style="display: inline;"><a class="color6" href="contact.html">LIÊN HỆ</a></li>
+    </ul>
+</div>

@@ -1,0 +1,50 @@
+﻿@model QuanLyBanLinhKienMayTinh.Models.NHACUNGCAP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/_AdminLayout.cshtml";
+}
+
+<h2>Thông tin chi tiết nhà cung cấp</h2>
+
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+          Tên nhà cung cấp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenNCC)
+        </dd>
+
+        <dt>
+           Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+           Email 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+           Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDTNCC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaNCC }) |
+    @Html.ActionLink("Trở về", "Index")
+</p>

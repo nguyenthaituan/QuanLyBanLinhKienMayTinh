@@ -1,0 +1,31 @@
+﻿@using QuanLyBanLinhKienMayTinh.Models
+<div class="header-top">
+    <div class="container">
+        <div class="search">
+        @using (Html.BeginForm("SanPhamTimKiem", "SanPham"))
+        {
+            <input type="text" name="TenSP" placeholder="Nhập thông tin">
+            <input type="submit" value="Tìm kiếm">
+        }
+        </div>
+        <div class="header-left">
+            <ul>
+                @if (Session["TaiKhoan"] != null && Session["TaiKhoan"] != "" && Session["TaiKhoan"] is THANHVIEN)
+                {
+                    THANHVIEN tv = (THANHVIEN)Session["TaiKhoan"];
+                    <h4 style="font-size: 13pt; font-weight: 700; color: aquamarine; margin-right: 15px;">Chào @tv.HoTen</h4>
+                    <li><a href="@Url.Action("DangXuat", "Home")">ĐĂNG XUẤT</a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("DangNhap", "Home")">ĐĂNG NHẬP</a></li>
+                }
+                <li><a href="@Url.Action("DangKy", "Home")">ĐĂNG KÍ</a></li>
+
+            </ul>
+            @Html.Action("GioHangPartial", "GioHang")
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>

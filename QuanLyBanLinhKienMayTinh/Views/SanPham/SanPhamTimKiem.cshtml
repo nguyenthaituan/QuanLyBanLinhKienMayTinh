@@ -1,0 +1,34 @@
+﻿@using QuanLyBanLinhKienMayTinh.Models
+@using PagedList.Mvc;
+@model PagedList.IPagedList<SANPHAM>
+@{
+    ViewBag.Title = "SanPhamTimKiem";
+    Layout = "~/Views/Layout/_ProductLayout.cshtml";
+}
+<h3 style="color:red;">@ViewBag.Message</h3>
+<div class="col-md-9 product1">
+    <div class=" bottom-product">
+        @foreach (var item in Model.OrderBy(n => n.DonGia))
+        {
+            <div class="col-md-4 bottom-cd simpleCart_shelfItem">
+                <div class="product-at ">
+                    <a href="@Url.Action("XemChiTiet","SanPham", new {id = item.MaSP })">
+                        <img class="img-responsive" src="@Url.Content("~/Content/HinhAnhSP/" + item.HinhAnh)" alt="" style="width:150px; height:150px;">
+                        <div class="pro-grid">
+                            <span class="buy-in">Đặt mua</span>
+                        </div>
+                    </a>
+                </div>
+                <p class="tun" style="height:80px;"><b>@item.TenSP</b></p>
+                <a href="@Url.Action("ThemGioHang","GioHang", new{@MaSP = item.MaSP, @url = Request.Url.ToString() })" class="item_add"><p class="number item_price"><i> </i>@item.DonGia.ToString("#,##") VNĐ</p></a>
+            </div>
+        }
+        <div class="clearfix"> </div>
+    </div>
+
+</div>
+<div class="dlink" style="text-align: center;">
+    @Html.PagedListPager(Model, page => Url.Action("SanPhamTimKiem", new { @TenSP = ViewBag.TenSP, page = page }))
+</div>
+
+
